@@ -4,6 +4,8 @@ import Input from '../../components/atomes/input';
 import { getWeatherByCityName } from '../../services';
 import { formatData } from '../../utils/formatData';
 
+import styles from './home.module.scss';
+
 const Home = () => {
   const [cityName, setCityName] = useState('');
   const [data, setData] = useState();
@@ -22,8 +24,11 @@ const Home = () => {
     setCityName(e.target.value);
   };
   return (
-    <div>
-      <Input onChange={handleCityName}></Input>
+    <div className={styles.container}>
+      <div>
+        <span>Add a country name: </span>
+        <Input onChange={handleCityName}></Input>
+      </div>
       <Button onClick={onHandleSubmit}>submit</Button>
       <ul>
         {data?.map((item) => (
